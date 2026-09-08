@@ -15,7 +15,9 @@
   <button onclick="selectSong('pap')">👨 Pap・ぱぱ</button>
 
   <p id="selected">だれのくくをききたい？</p>
-
+  
+  <img id="character" src="" alt="" width="300">
+  
   <audio id="song"></audio>
 
   <br><br>
@@ -32,19 +34,23 @@
     function selectSong(person) {
       const song = document.getElementById('song');
       const selected = document.getElementById('selected');
+      const character = document.getElementById('character');
 
       if (person === 'son') {
         song.src = '3-no-dan_son_normal_20260908.m4a';
+        character.src = 'Son_2026-09-09 071711.png';
         selected.textContent = '👦 Minato・みなとの三の段';
       }
 
       if (person === 'daughter') {
         song.src = '3-no-dan_daughter_normal_20260908.m4a';
+        character.src = 'Daughter_2026-09-09 071935.png';
         selected.textContent = '👧 Sumire・すみれの三の段';
       }
 
       if (person === 'pap') {
         song.src = '3-no-dan_pap_normal_20260908.m4a';
+        character.src = 'Pap_2026-09-09 071953.png';
         selected.textContent = '👨 Pap・ぱぱの三の段';
       }
     }
