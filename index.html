@@ -8,17 +8,46 @@
 
 <body>
   <h1>クチズム</h1>
-
   <h2>三の段</h2>
 
-  <audio id="song" src="3-no-dan_son_normal_20260908.m4a"></audio>
+  <button onclick="selectSong('son')">👦 Minato・みなと</button>
+  <button onclick="selectSong('daughter')">👧Sumire・すみれ</button>
+  <button onclick="selectSong('pap')">👨 Pap・ぱぱ</button>
+
+  <p id="selected">だれのくくをききたい？</p>
+
+  <audio id="song"></audio>
+
+  <br><br>
 
   <button onclick="document.getElementById('song').play()">
-    ▶️ 再生
+    ▶️ くくをきく
   </button>
 
   <button onclick="document.getElementById('song').pause()">
-    ⏸️ 一時停止
+    ⏸️ くくをとめる
   </button>
+
+  <script>
+    function selectSong(person) {
+      const song = document.getElementById('song');
+      const selected = document.getElementById('selected');
+
+      if (person === 'son') {
+        song.src = '3-no-dan_son_normal_20260908.m4a';
+        selected.textContent = '👦 Minato・みなとの三の段';
+      }
+
+      if (person === 'daughter') {
+        song.src = '3-no-dan_daughter_normal_20260908.m4a';
+        selected.textContent = '👧 Sumire・すみれの三の段';
+      }
+
+      if (person === 'pap') {
+        song.src = '3-no-dan_pap_normal_20260908.m4a';
+        selected.textContent = '👨 Pap・ぱぱの三の段';
+      }
+    }
+  </script>
 </body>
 </html>
