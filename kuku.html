@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>クチズム</title>
+
+  <style>
+    body {
+      background-color: #e6f7ff;
+      font-size: 2em;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2em;
+    }
+
+    h2 {
+      font-size: 1.5em;
+    }
+
+    button {
+      font-size: 0.8em;
+      padding: 10px 15px;
+      margin: 5px;
+    }
+
+    #selected {
+      font-size: 1em;
+    }
+
+    #character {
+      width: 150px;
+      max-width: 90%;
+    }
+
+    audio {
+      width: 90%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>クチズム - 三の段</h1>
+  
+  <button onclick="selectSong('son')">👦 Minato・みなと</button>
+  <button onclick="selectSong('daughter')">👧Sumire・すみれ</button>
+  <button onclick="selectSong('pap')">👨 Pap・ぱぱ</button>
+
+  <p id="selected">だれのくくをききたい？</p>
+  
+  <img id="character" src="" alt="">
+  
+  <audio id="song"></audio>
+
+  <br><br>
+
+  <button onclick="document.getElementById('song').play()">
+    ▶️ くくをきく
+  </button>
+
+  <button onclick="document.getElementById('song').pause()">
+    ⏸️ くくをとめる
+  </button>
+
+  <script>
+    function selectSong(person) {
+      const song = document.getElementById('song');
+      const selected = document.getElementById('selected');
+      const character = document.getElementById('character');
+
+      if (person === 'son') {
+        song.src = '3-no-dan_son_normal_20260908.m4a';
+        character.src = 'Son_2026-09-09 071711.png';
+        selected.textContent = '👦 Minato・みなとの三の段';
+      }
+
+      if (person === 'daughter') {
+        song.src = '3-no-dan_daughter_normal_20260908.m4a';
+        character.src = 'Daughter_2026-09-09 071935.png';
+        selected.textContent = '👧 Sumire・すみれの三の段';
+      }
+
+      if (person === 'pap') {
+        song.src = '3-no-dan_pap_normal_20260908.m4a';
+        character.src = 'Pap_2026-09-09 071953.png';
+        selected.textContent = '👨 Pap・ぱぱの三の段';
+      }
+    }
+  </script>
+</body>
+</html>
