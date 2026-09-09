@@ -12,7 +12,7 @@
 
     body {
       margin: 0;
-      padding: 18px 20px 24px;
+      padding: 14px 20px 20px;
       background: linear-gradient(
         180deg,
         #e6f7ff 0%,
@@ -32,7 +32,7 @@
     /* タイトル */
 
     h1 {
-      margin: 4px 0 22px;
+      margin: 4px 0 20px;
       font-size: 2.2em;
       font-weight: 800;
       letter-spacing: 0.06em;
@@ -42,7 +42,7 @@
     /* 質問 */
 
     .section-title {
-      margin: 0 0 14px;
+      margin: 0 0 12px;
       font-size: 1.2em;
       font-weight: 700;
       color: #526b7a;
@@ -54,13 +54,13 @@
       display: flex;
       justify-content: center;
       gap: 12px;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
 
     .person-button {
       flex: 1;
       max-width: 220px;
-      min-height: 78px;
+      min-height: 76px;
       padding: 10px 14px;
 
       border: 3px solid rgba(255, 255, 255, 0.95);
@@ -105,33 +105,46 @@
     /* 選択した人 */
 
     .selected-person {
-      min-height: 170px;
+      height: 145px;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 28px;
+      gap: 24px;
 
-      margin: 0 auto 18px;
+      margin: 0 auto 14px;
+    }
+
+    /* 画像を表示する場所 */
+
+    .character-frame {
+      width: 125px;
+      height: 125px;
+      overflow: hidden;
+      border-radius: 24px;
+      flex-shrink: 0;
     }
 
     #character {
-      width: 150px;
-      height: 150px;
-      object-fit: contain;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-      border-radius: 24px;
+    /* 未選択時は画像を非表示 */
 
-      box-shadow: 0 7px 20px rgba(80, 120, 150, 0.15);
+    .character-frame.empty {
+      visibility: hidden;
     }
 
     .selected-info {
+      min-width: 150px;
       text-align: left;
-      min-width: 170px;
     }
 
     #selected-name {
       margin: 0;
-      font-size: 1.55em;
+      font-size: 1.4em;
       font-weight: 800;
       line-height: 1.35;
       color: #4d7187;
@@ -148,9 +161,15 @@
 
     #selected-name .dan {
       display: block;
-      margin-top: 4px;
+      margin-top: 3px;
       font-size: 0.85em;
       color: #7895a8;
+    }
+
+    /* 未選択時は名前も表示しない */
+
+    .selected-info.empty {
+      visibility: hidden;
     }
 
     /* 音声エリア */
@@ -158,7 +177,7 @@
     .player {
       max-width: 620px;
       margin: 0 auto;
-      padding: 18px 22px;
+      padding: 16px 20px;
 
       border-radius: 24px;
 
@@ -176,9 +195,9 @@
     .play-button {
       width: 100%;
       max-width: 440px;
-      min-height: 62px;
+      min-height: 60px;
 
-      padding: 15px 30px;
+      padding: 14px 30px;
 
       border: none;
       border-radius: 999px;
@@ -210,11 +229,11 @@
       box-shadow: 0 3px 7px rgba(210, 175, 50, 0.2);
     }
 
-    /* 一時停止 */
+    /* とめる */
 
     .pause-button {
-      margin-top: 8px;
-      padding: 8px 20px;
+      margin-top: 6px;
+      padding: 9px 20px;
 
       border: none;
       background: transparent;
@@ -222,7 +241,7 @@
       color: #8297a5;
 
       font-family: sans-serif;
-      font-size: 0.85em;
+      font-size: 1em;
       font-weight: 700;
 
       cursor: pointer;
@@ -237,56 +256,60 @@
     @media (max-width: 700px) {
 
       body {
-        padding: 14px 14px 20px;
+        padding: 12px 14px 18px;
       }
 
       h1 {
-        margin-bottom: 18px;
+        margin-bottom: 16px;
         font-size: 1.9em;
       }
 
       .section-title {
-        margin-bottom: 12px;
+        margin-bottom: 10px;
         font-size: 1.1em;
       }
 
       .people {
         gap: 8px;
-        margin-bottom: 14px;
+        margin-bottom: 10px;
       }
 
       .person-button {
-        min-height: 72px;
+        min-height: 70px;
         padding: 8px 6px;
         font-size: 0.95em;
       }
 
       .selected-person {
-        min-height: 145px;
-        gap: 18px;
-        margin-bottom: 14px;
+        height: 130px;
+        gap: 16px;
+        margin-bottom: 10px;
       }
 
-      #character {
-        width: 125px;
-        height: 125px;
+      .character-frame {
+        width: 115px;
+        height: 115px;
       }
 
       .selected-info {
-        min-width: 145px;
+        min-width: 135px;
       }
 
       #selected-name {
-        font-size: 1.35em;
+        font-size: 1.3em;
       }
 
       .player {
-        padding: 16px 18px;
+        padding: 14px 16px;
       }
 
       .play-button {
-        min-height: 58px;
+        min-height: 56px;
         font-size: 1.05em;
+      }
+
+      .pause-button {
+        font-size: 1em;
       }
     }
   </style>
@@ -330,9 +353,11 @@
 
     <div class="selected-person">
 
-      <img id="character" src="" alt="">
+      <div class="character-frame empty" id="character-frame">
+        <img id="character" src="" alt="">
+      </div>
 
-      <div class="selected-info">
+      <div class="selected-info empty" id="selected-info">
         <p id="selected-name">
           <span class="english"></span>
           <span class="japanese"></span>
@@ -357,7 +382,7 @@
       <button
         class="pause-button"
         onclick="document.getElementById('song').pause()">
-        一時停止
+        とめる
       </button>
 
     </div>
@@ -369,15 +394,30 @@
       const song = document.getElementById('song');
       const character = document.getElementById('character');
 
-      const english = document.querySelector('#selected-name .english');
-      const japanese = document.querySelector('#selected-name .japanese');
-      const dan = document.querySelector('#selected-name .dan');
+      const characterFrame =
+        document.getElementById('character-frame');
 
-      const buttons = document.querySelectorAll('.person-button');
+      const selectedInfo =
+        document.getElementById('selected-info');
+
+      const english =
+        document.querySelector('#selected-name .english');
+
+      const japanese =
+        document.querySelector('#selected-name .japanese');
+
+      const dan =
+        document.querySelector('#selected-name .dan');
+
+      const buttons =
+        document.querySelectorAll('.person-button');
 
       buttons.forEach(button => {
         button.classList.remove('selected');
       });
+
+      characterFrame.classList.remove('empty');
+      selectedInfo.classList.remove('empty');
 
       if (person === 'son') {
         song.src = '3-no-dan_son_normal_20260908.m4a';
