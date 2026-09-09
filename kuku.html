@@ -10,14 +10,23 @@
       box-sizing: border-box;
     }
     
+    html {
+      min-height: 100%;
+      background-color: #e6f7ff;
+    }
+    
     body {
       margin: 0;
       padding: 18px 20px 24px;
+      min-height: 100vh;
+      min-height: 100dvh;
+    
       background: linear-gradient(
         180deg,
         #e6f7ff 0%,
         #f8fdff 100%
       );
+    
       color: #334455;
       font-family: sans-serif;
       text-align: center;
@@ -26,7 +35,12 @@
     .app {
       width: 100%;
       max-width: 900px;
+      min-height: calc(100vh - 42px);
+      min-height: calc(100dvh - 42px);
       margin: 0 auto;
+    
+      display: flex;
+      flex-direction: column;
     }
     
     h1 {
@@ -56,17 +70,23 @@
       max-width: 220px;
       min-height: 76px;
       padding: 10px 14px;
+    
       border: 3px solid rgba(255, 255, 255, 0.95);
       border-radius: 20px;
+    
       background: rgba(255, 255, 255, 0.82);
       color: #405564;
+    
       font-family: sans-serif;
       font-size: 1em;
       font-weight: 700;
       letter-spacing: 0.03em;
       line-height: 1.4;
+    
       box-shadow: 0 4px 12px rgba(80, 120, 150, 0.13);
+    
       cursor: pointer;
+    
       transition:
         transform 0.15s ease,
         box-shadow 0.15s ease,
@@ -92,16 +112,19 @@
     
     .selected-person {
       height: 160px;
+    
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 28px;
+    
       margin: 0 auto 10px;
     }
     
     .character-frame {
       width: 135px;
       height: 135px;
+    
       overflow: hidden;
       border-radius: 26px;
       flex-shrink: 0;
@@ -152,11 +175,17 @@
     }
     
     .player {
+      width: 100%;
       max-width: 620px;
-      margin: 0 auto;
+    
+      margin: auto auto 0;
+    
       padding: 18px 20px 12px;
+    
       border-radius: 24px;
+    
       background: rgba(255, 255, 255, 0.82);
+    
       box-shadow: 0 7px 22px rgba(80, 120, 150, 0.12);
     }
     
@@ -169,16 +198,22 @@
       max-width: 440px;
       min-height: 62px;
       padding: 14px 30px;
+    
       border: none;
       border-radius: 999px;
+    
       background-color: #ffd84d;
       color: #333;
+    
       font-family: sans-serif;
       font-size: 1.15em;
       font-weight: 800;
       letter-spacing: 0.08em;
+    
       box-shadow: 0 5px 12px rgba(210, 175, 50, 0.25);
+    
       cursor: pointer;
+    
       transition:
         transform 0.15s ease,
         box-shadow 0.15s ease;
@@ -197,12 +232,15 @@
     .pause-button {
       margin-top: 4px;
       padding: 8px 20px;
+    
       border: none;
       background: transparent;
       color: #8297a5;
+    
       font-family: sans-serif;
       font-size: 1em;
       font-weight: 700;
+    
       cursor: pointer;
     }
     
@@ -211,8 +249,14 @@
     }
     
     @media (max-width: 700px) {
+    
       body {
         padding: 14px 14px 20px;
+      }
+    
+      .app {
+        min-height: calc(100vh - 34px);
+        min-height: calc(100dvh - 34px);
       }
     
       h1 {
