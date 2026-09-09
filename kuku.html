@@ -3,66 +3,292 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>クチズム</title>
+  <title>クチズム 九九</title>
 
   <style>
-    body {
-      background-color: #e6f7ff;
-      font-size: 2em;
-      padding: 20px;
+    * {
+      box-sizing: border-box;
     }
+
+    body {
+      margin: 0;
+      padding: 24px 20px 40px;
+      background: linear-gradient(
+        180deg,
+        #e6f7ff 0%,
+        #f8fdff 100%
+      );
+      color: #334455;
+      font-family: sans-serif;
+      text-align: center;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* タイトル */
 
     h1 {
-      font-size: 2em;
+      margin: 10px 0 4px;
+      font-size: 2.2em;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: #3f86b5;
     }
 
-    h2 {
-      font-size: 1.5em;
+    .subtitle {
+      margin: 0 0 24px;
+      font-size: 0.9em;
+      font-weight: 600;
+      color: #7895a8;
+      letter-spacing: 0.08em;
     }
 
-    button {
-      font-size: 0.8em;
-      padding: 10px 15px;
-      margin: 5px;
+    /* だれの九九？ */
+
+    .section-title {
+      margin: 0 0 14px;
+      font-size: 1em;
+      font-weight: 700;
+      color: #526b7a;
     }
+
+    /* 人物選択 */
+
+    .people {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .person-button {
+      min-width: 150px;
+      padding: 14px 18px;
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.75);
+      color: #405564;
+      font-family: sans-serif;
+      font-size: 0.72em;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      box-shadow: 0 4px 12px rgba(80, 120, 150, 0.12);
+      cursor: pointer;
+      transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background-color 0.15s ease;
+    }
+
+    .person-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(80, 120, 150, 0.18);
+    }
+
+    .person-button:active {
+      transform: translateY(1px);
+      box-shadow: 0 3px 8px rgba(80, 120, 150, 0.12);
+    }
+
+    /* 選択された人 */
+
+    .person-button.selected {
+      background-color: #ffd84d;
+      color: #3f4650;
+      border-color: #fff4b8;
+      box-shadow: 0 5px 14px rgba(210, 175, 50, 0.25);
+    }
+
+    /* 選択中の表示 */
 
     #selected {
+      margin: 8px 0 16px;
       font-size: 1em;
+      font-weight: 800;
+      color: #4d7187;
+      letter-spacing: 0.04em;
+    }
+
+    /* キャラクター */
+
+    .character-area {
+      min-height: 180px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 18px;
     }
 
     #character {
-      width: 150px;
-      max-width: 90%;
+      width: 180px;
+      max-width: 55vw;
+      height: auto;
+      border-radius: 24px;
+      box-shadow: 0 8px 24px rgba(80, 120, 150, 0.15);
+    }
+
+    /* 音声エリア */
+
+    .player {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 8px 24px rgba(80, 120, 150, 0.12);
     }
 
     audio {
-      width: 90%;
+      display: none;
+    }
+
+    /* 再生・停止 */
+
+    .play-button {
+      width: 100%;
+      max-width: 420px;
+      padding: 17px 30px;
+      border: none;
+      border-radius: 999px;
+      background-color: #ffd84d;
+      color: #333;
+      font-family: sans-serif;
+      font-size: 1em;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      box-shadow: 0 5px 12px rgba(210, 175, 50, 0.25);
+      cursor: pointer;
+      transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+    }
+
+    .play-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 16px rgba(210, 175, 50, 0.3);
+    }
+
+    .play-button:active {
+      transform: translateY(2px);
+      box-shadow: 0 3px 7px rgba(210, 175, 50, 0.2);
+    }
+
+    .pause-button {
+      margin-top: 12px;
+      padding: 10px 22px;
+      border: none;
+      background: transparent;
+      color: #8297a5;
+      font-family: sans-serif;
+      font-size: 0.65em;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .pause-button:hover {
+      color: #526b7a;
+    }
+
+    /* 小さい画面 */
+
+    @media (max-width: 600px) {
+      body {
+        padding: 18px 14px 30px;
+      }
+
+      h1 {
+        font-size: 1.7em;
+      }
+
+      .people {
+        gap: 8px;
+      }
+
+      .person-button {
+        min-width: 0;
+        flex: 1;
+        padding: 12px 8px;
+        font-size: 0.65em;
+      }
+
+      #character {
+        width: 150px;
+      }
+
+      .player {
+        padding: 16px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <h1>クチズム - 三の段</h1>
-  
-  <button onclick="selectSong('son')">👦 Minato・みなと</button>
-  <button onclick="selectSong('daughter')">👧Sumire・すみれ</button>
-  <button onclick="selectSong('pap')">👨 Pap・ぱぱ</button>
 
-  <p id="selected">だれのくくをききたい？</p>
-  
-  <img id="character" src="" alt="">
-  
-  <audio id="song"></audio>
+  <div class="app">
 
-  <br><br>
+    <h1>クチズム 九九</h1>
 
-  <button onclick="document.getElementById('song').play()">
-    ▶️ くくをきく
-  </button>
+    <p class="subtitle">歌って、口が覚える。</p>
 
-  <button onclick="document.getElementById('song').pause()">
-    ⏸️ くくをとめる
-  </button>
+    <p class="section-title">だれの九九をききたい？</p>
+
+    <div class="people">
+
+      <button
+        class="person-button"
+        id="son-button"
+        onclick="selectSong('son')">
+        👦 Minato・みなと
+      </button>
+
+      <button
+        class="person-button"
+        id="daughter-button"
+        onclick="selectSong('daughter')">
+        👧 Sumire・すみれ
+      </button>
+
+      <button
+        class="person-button"
+        id="pap-button"
+        onclick="selectSong('pap')">
+        👨 Pap・ぱぱ
+      </button>
+
+    </div>
+
+    <p id="selected">だれのくくをききたい？</p>
+
+    <div class="character-area">
+      <img id="character" src="" alt="">
+    </div>
+
+    <div class="player">
+
+      <audio id="song"></audio>
+
+      <button
+        class="play-button"
+        onclick="document.getElementById('song').play()">
+        ▶️ くくをきく
+      </button>
+
+      <br>
+
+      <button
+        class="pause-button"
+        onclick="document.getElementById('song').pause()">
+        ⏸️ くくをとめる
+      </button>
+
+    </div>
+
+  </div>
 
   <script>
     function selectSong(person) {
@@ -70,24 +296,40 @@
       const selected = document.getElementById('selected');
       const character = document.getElementById('character');
 
+      const buttons = document.querySelectorAll('.person-button');
+
+      buttons.forEach(button => {
+        button.classList.remove('selected');
+      });
+
       if (person === 'son') {
         song.src = '3-no-dan_son_normal_20260908.m4a';
         character.src = 'Son_2026-09-09 071711.png';
         selected.textContent = '👦 Minato・みなとの三の段';
+
+        document.getElementById('son-button')
+          .classList.add('selected');
       }
 
       if (person === 'daughter') {
         song.src = '3-no-dan_daughter_normal_20260908.m4a';
         character.src = 'Daughter_2026-09-09 071935.png';
         selected.textContent = '👧 Sumire・すみれの三の段';
+
+        document.getElementById('daughter-button')
+          .classList.add('selected');
       }
 
       if (person === 'pap') {
         song.src = '3-no-dan_pap_normal_20260908.m4a';
         character.src = 'Pap_2026-09-09 071953.png';
         selected.textContent = '👨 Pap・ぱぱの三の段';
+
+        document.getElementById('pap-button')
+          .classList.add('selected');
       }
     }
   </script>
+
 </body>
 </html>
