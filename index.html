@@ -3,91 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>クチズム</title>
+  <title>クチズム 九九</title>
 
   <style>
     body {
-      background-color: #e6f7ff;
-      font-size: 2em;
+      margin: 0;
       padding: 20px;
+      background-color: #e6f7ff;
+      text-align: center;
     }
 
-    h1 {
-      font-size: 2em;
+    #keyvisual {
+      width: 100%;
+      max-width: 700px;
+      height: auto;
     }
 
-    h2 {
+    #start {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 40px;
+      background-color: #ffd84d;
+      color: #333;
+      text-decoration: none;
       font-size: 1.5em;
-    }
-
-    button {
-      font-size: 0.8em;
-      padding: 10px 15px;
-      margin: 5px;
-    }
-
-    #selected {
-      font-size: 1em;
-    }
-
-    #character {
-      width: 150px;
-      max-width: 90%;
-    }
-
-    audio {
-      width: 90%;
+      font-weight: bold;
+      border-radius: 20px;
     }
   </style>
 </head>
 
 <body>
-  <h1>クチズム - 三の段</h1>
-  
-  <button onclick="selectSong('son')">👦 Minato・みなと</button>
-  <button onclick="selectSong('daughter')">👧Sumire・すみれ</button>
-  <button onclick="selectSong('pap')">👨 Pap・ぱぱ</button>
 
-  <p id="selected">だれのくくをききたい？</p>
-  
-  <img id="character" src="" alt="">
-  
-  <audio id="song"></audio>
+  <img
+    id="keyvisual"
+    src="kuchism-keyvisual.png"
+    alt="クチズム 九九">
 
-  <br><br>
+  <br>
 
-  <button onclick="document.getElementById('song').play()">
-    ▶️ くくをきく
-  </button>
+  <a id="start" href="kuku.html">
+    はじめる
+  </a>
 
-  <button onclick="document.getElementById('song').pause()">
-    ⏸️ くくをとめる
-  </button>
-
-  <script>
-    function selectSong(person) {
-      const song = document.getElementById('song');
-      const selected = document.getElementById('selected');
-      const character = document.getElementById('character');
-
-      if (person === 'son') {
-        song.src = '3-no-dan_son_normal_20260908.m4a';
-        character.src = 'Son_2026-09-09 071711.png';
-        selected.textContent = '👦 Minato・みなとの三の段';
-      }
-
-      if (person === 'daughter') {
-        song.src = '3-no-dan_daughter_normal_20260908.m4a';
-        character.src = 'Daughter_2026-09-09 071935.png';
-        selected.textContent = '👧 Sumire・すみれの三の段';
-      }
-
-      if (person === 'pap') {
-        song.src = '3-no-dan_pap_normal_20260908.m4a';
-        character.src = 'Pap_2026-09-09 071953.png';
-        selected.textContent = '👨 Pap・ぱぱの三の段';
-      }
-    }
-  </script>
 </body>
 </html>
