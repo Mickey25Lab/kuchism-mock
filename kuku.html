@@ -142,6 +142,20 @@
       text-align: left;
     }
 
+    #character-frame.playing {
+      animation: sing 0.8s ease-in-out infinite alternate;
+    }
+    
+    @keyframes sing {
+      from {
+        transform: translateY(0);
+      }
+    
+      to {
+        transform: translateY(-10px);
+      }
+    }
+
     #selected-name {
       margin: 0;
       font-size: 1.4em;
@@ -455,6 +469,18 @@
           .classList.add('selected');
       }
     }
+    
+    const song = document.getElementById('song');
+    const characterFrame =
+      document.getElementById('character-frame');
+    
+    song.onplay = function() {
+      characterFrame.classList.add('playing');
+    };
+    
+    song.onpause = function() {
+      characterFrame.classList.remove('playing');
+    };
   </script>
 
 </body>
