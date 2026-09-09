@@ -32,7 +32,7 @@
     /* タイトル */
 
     h1 {
-      margin: 10px 0 28px;
+      margin: 10px 0 32px;
       font-size: 2.2em;
       font-weight: 800;
       letter-spacing: 0.06em;
@@ -42,8 +42,8 @@
     /* だれの九九？ */
 
     .section-title {
-      margin: 0 0 14px;
-      font-size: 1em;
+      margin: 0 0 18px;
+      font-size: 1.25em;
       font-weight: 700;
       color: #526b7a;
     }
@@ -53,25 +53,32 @@
     .people {
       display: flex;
       justify-content: center;
-      gap: 12px;
+      gap: 16px;
       flex-wrap: wrap;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
     .person-button {
-      min-width: 150px;
-      padding: 14px 18px;
-      border: 2px solid rgba(255, 255, 255, 0.9);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.75);
+      min-width: 170px;
+      min-height: 92px;
+      padding: 14px 20px;
+
+      border: 3px solid rgba(255, 255, 255, 0.95);
+      border-radius: 22px;
+
+      background: rgba(255, 255, 255, 0.8);
       color: #405564;
+
       font-family: sans-serif;
-      font-size: 0.72em;
+      font-size: 1em;
       font-weight: 700;
       letter-spacing: 0.03em;
-      line-height: 1.5;
-      box-shadow: 0 4px 12px rgba(80, 120, 150, 0.12);
+      line-height: 1.45;
+
+      box-shadow: 0 5px 14px rgba(80, 120, 150, 0.14);
+
       cursor: pointer;
+
       transition:
         transform 0.15s ease,
         box-shadow 0.15s ease,
@@ -80,12 +87,12 @@
 
     .person-button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(80, 120, 150, 0.18);
+      box-shadow: 0 7px 18px rgba(80, 120, 150, 0.2);
     }
 
     .person-button:active {
       transform: translateY(1px);
-      box-shadow: 0 3px 8px rgba(80, 120, 150, 0.12);
+      box-shadow: 0 3px 9px rgba(80, 120, 150, 0.14);
     }
 
     /* 選択された人 */
@@ -94,14 +101,14 @@
       background-color: #ffd84d;
       color: #3f4650;
       border-color: #fff4b8;
-      box-shadow: 0 5px 14px rgba(210, 175, 50, 0.25);
+      box-shadow: 0 6px 16px rgba(210, 175, 50, 0.28);
     }
 
     /* 選択中の表示 */
 
     #selected {
-      margin: 8px 0 16px;
-      font-size: 1em;
+      margin: 10px 0 20px;
+      font-size: 1.25em;
       font-weight: 800;
       color: #4d7187;
       letter-spacing: 0.04em;
@@ -110,19 +117,19 @@
     /* キャラクター */
 
     .character-area {
-      min-height: 180px;
+      min-height: 220px;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 18px;
+      margin-bottom: 22px;
     }
 
     #character {
-      width: 180px;
-      max-width: 55vw;
+      width: 200px;
+      max-width: 60vw;
       height: auto;
       border-radius: 24px;
-      box-shadow: 0 8px 24px rgba(80, 120, 150, 0.15);
+      box-shadow: 0 9px 26px rgba(80, 120, 150, 0.16);
     }
 
     /* 音声エリア */
@@ -130,10 +137,10 @@
     .player {
       max-width: 620px;
       margin: 0 auto;
-      padding: 20px;
-      border-radius: 24px;
-      background: rgba(255, 255, 255, 0.8);
-      box-shadow: 0 8px 24px rgba(80, 120, 150, 0.12);
+      padding: 24px;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 9px 26px rgba(80, 120, 150, 0.13);
     }
 
     audio {
@@ -144,18 +151,25 @@
 
     .play-button {
       width: 100%;
-      max-width: 420px;
-      padding: 17px 30px;
+      max-width: 460px;
+      min-height: 70px;
+      padding: 18px 30px;
+
       border: none;
       border-radius: 999px;
+
       background-color: #ffd84d;
       color: #333;
+
       font-family: sans-serif;
-      font-size: 1em;
+      font-size: 1.2em;
       font-weight: 800;
       letter-spacing: 0.08em;
-      box-shadow: 0 5px 12px rgba(210, 175, 50, 0.25);
+
+      box-shadow: 0 6px 15px rgba(210, 175, 50, 0.28);
+
       cursor: pointer;
+
       transition:
         transform 0.15s ease,
         box-shadow 0.15s ease;
@@ -163,25 +177,29 @@
 
     .play-button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 7px 16px rgba(210, 175, 50, 0.3);
+      box-shadow: 0 8px 18px rgba(210, 175, 50, 0.32);
     }
 
     .play-button:active {
       transform: translateY(2px);
-      box-shadow: 0 3px 7px rgba(210, 175, 50, 0.2);
+      box-shadow: 0 3px 8px rgba(210, 175, 50, 0.2);
     }
 
     /* 一時停止 */
 
     .pause-button {
-      margin-top: 12px;
-      padding: 10px 22px;
+      margin-top: 14px;
+      padding: 12px 24px;
+
       border: none;
       background: transparent;
+
       color: #8297a5;
+
       font-family: sans-serif;
-      font-size: 0.65em;
+      font-size: 0.9em;
       font-weight: 700;
+
       cursor: pointer;
     }
 
@@ -192,31 +210,55 @@
     /* 小さい画面 */
 
     @media (max-width: 600px) {
+
       body {
         padding: 18px 14px 30px;
       }
 
       h1 {
-        font-size: 1.7em;
+        font-size: 1.8em;
+        margin-bottom: 28px;
+      }
+
+      .section-title {
+        font-size: 1.15em;
       }
 
       .people {
-        gap: 8px;
+        gap: 10px;
       }
 
       .person-button {
         min-width: 0;
         flex: 1;
+        min-height: 88px;
         padding: 12px 8px;
-        font-size: 0.65em;
+        font-size: 0.95em;
+      }
+
+      #selected {
+        font-size: 1.15em;
+      }
+
+      .character-area {
+        min-height: 190px;
       }
 
       #character {
-        width: 150px;
+        width: 165px;
       }
 
       .player {
-        padding: 16px;
+        padding: 18px;
+      }
+
+      .play-button {
+        min-height: 66px;
+        font-size: 1.1em;
+      }
+
+      .pause-button {
+        font-size: 0.9em;
       }
     }
   </style>
