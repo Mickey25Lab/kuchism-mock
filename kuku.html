@@ -12,7 +12,7 @@
 
     body {
       margin: 0;
-      padding: 24px 20px 40px;
+      padding: 18px 20px 24px;
       background: linear-gradient(
         180deg,
         #e6f7ff 0%,
@@ -32,18 +32,18 @@
     /* タイトル */
 
     h1 {
-      margin: 10px 0 32px;
+      margin: 4px 0 22px;
       font-size: 2.2em;
       font-weight: 800;
       letter-spacing: 0.06em;
       color: #3f86b5;
     }
 
-    /* だれの九九？ */
+    /* 質問 */
 
     .section-title {
-      margin: 0 0 18px;
-      font-size: 1.25em;
+      margin: 0 0 14px;
+      font-size: 1.2em;
       font-weight: 700;
       color: #526b7a;
     }
@@ -53,29 +53,29 @@
     .people {
       display: flex;
       justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 28px;
+      gap: 12px;
+      margin-bottom: 18px;
     }
 
     .person-button {
-      min-width: 170px;
-      min-height: 92px;
-      padding: 14px 20px;
+      flex: 1;
+      max-width: 220px;
+      min-height: 78px;
+      padding: 10px 14px;
 
       border: 3px solid rgba(255, 255, 255, 0.95);
-      border-radius: 22px;
+      border-radius: 20px;
 
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.82);
       color: #405564;
 
       font-family: sans-serif;
       font-size: 1em;
       font-weight: 700;
       letter-spacing: 0.03em;
-      line-height: 1.45;
+      line-height: 1.4;
 
-      box-shadow: 0 5px 14px rgba(80, 120, 150, 0.14);
+      box-shadow: 0 4px 12px rgba(80, 120, 150, 0.13);
 
       cursor: pointer;
 
@@ -87,49 +87,70 @@
 
     .person-button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 7px 18px rgba(80, 120, 150, 0.2);
+      box-shadow: 0 6px 16px rgba(80, 120, 150, 0.18);
     }
 
     .person-button:active {
       transform: translateY(1px);
-      box-shadow: 0 3px 9px rgba(80, 120, 150, 0.14);
+      box-shadow: 0 3px 8px rgba(80, 120, 150, 0.12);
     }
-
-    /* 選択された人 */
 
     .person-button.selected {
       background-color: #ffd84d;
       color: #3f4650;
       border-color: #fff4b8;
-      box-shadow: 0 6px 16px rgba(210, 175, 50, 0.28);
+      box-shadow: 0 5px 14px rgba(210, 175, 50, 0.25);
     }
 
-    /* 選択中の表示 */
+    /* 選択した人 */
 
-    #selected {
-      margin: 10px 0 20px;
-      font-size: 1.25em;
+    .selected-person {
+      min-height: 170px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 28px;
+
+      margin: 0 auto 18px;
+    }
+
+    #character {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+
+      border-radius: 24px;
+
+      box-shadow: 0 7px 20px rgba(80, 120, 150, 0.15);
+    }
+
+    .selected-info {
+      text-align: left;
+      min-width: 170px;
+    }
+
+    #selected-name {
+      margin: 0;
+      font-size: 1.55em;
       font-weight: 800;
+      line-height: 1.35;
       color: #4d7187;
       letter-spacing: 0.04em;
     }
 
-    /* キャラクター */
-
-    .character-area {
-      min-height: 220px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 22px;
+    #selected-name .english {
+      display: block;
     }
 
-    #character {
-      width: 200px;
-      max-width: 60vw;
-      height: auto;
-      border-radius: 24px;
-      box-shadow: 0 9px 26px rgba(80, 120, 150, 0.16);
+    #selected-name .japanese {
+      display: block;
+    }
+
+    #selected-name .dan {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.85em;
+      color: #7895a8;
     }
 
     /* 音声エリア */
@@ -137,10 +158,13 @@
     .player {
       max-width: 620px;
       margin: 0 auto;
-      padding: 24px;
-      border-radius: 26px;
+      padding: 18px 22px;
+
+      border-radius: 24px;
+
       background: rgba(255, 255, 255, 0.82);
-      box-shadow: 0 9px 26px rgba(80, 120, 150, 0.13);
+
+      box-shadow: 0 7px 22px rgba(80, 120, 150, 0.12);
     }
 
     audio {
@@ -151,9 +175,10 @@
 
     .play-button {
       width: 100%;
-      max-width: 460px;
-      min-height: 70px;
-      padding: 18px 30px;
+      max-width: 440px;
+      min-height: 62px;
+
+      padding: 15px 30px;
 
       border: none;
       border-radius: 999px;
@@ -162,11 +187,11 @@
       color: #333;
 
       font-family: sans-serif;
-      font-size: 1.2em;
+      font-size: 1.15em;
       font-weight: 800;
       letter-spacing: 0.08em;
 
-      box-shadow: 0 6px 15px rgba(210, 175, 50, 0.28);
+      box-shadow: 0 5px 12px rgba(210, 175, 50, 0.25);
 
       cursor: pointer;
 
@@ -177,19 +202,19 @@
 
     .play-button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 18px rgba(210, 175, 50, 0.32);
+      box-shadow: 0 7px 16px rgba(210, 175, 50, 0.3);
     }
 
     .play-button:active {
       transform: translateY(2px);
-      box-shadow: 0 3px 8px rgba(210, 175, 50, 0.2);
+      box-shadow: 0 3px 7px rgba(210, 175, 50, 0.2);
     }
 
     /* 一時停止 */
 
     .pause-button {
-      margin-top: 14px;
-      padding: 12px 24px;
+      margin-top: 8px;
+      padding: 8px 20px;
 
       border: none;
       background: transparent;
@@ -197,7 +222,7 @@
       color: #8297a5;
 
       font-family: sans-serif;
-      font-size: 0.9em;
+      font-size: 0.85em;
       font-weight: 700;
 
       cursor: pointer;
@@ -207,58 +232,61 @@
       color: #526b7a;
     }
 
-    /* 小さい画面 */
+    /* タブレット */
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
 
       body {
-        padding: 18px 14px 30px;
+        padding: 14px 14px 20px;
       }
 
       h1 {
-        font-size: 1.8em;
-        margin-bottom: 28px;
+        margin-bottom: 18px;
+        font-size: 1.9em;
       }
 
       .section-title {
-        font-size: 1.15em;
-      }
-
-      .people {
-        gap: 10px;
-      }
-
-      .person-button {
-        min-width: 0;
-        flex: 1;
-        min-height: 88px;
-        padding: 12px 8px;
-        font-size: 0.95em;
-      }
-
-      #selected {
-        font-size: 1.15em;
-      }
-
-      .character-area {
-        min-height: 190px;
-      }
-
-      #character {
-        width: 165px;
-      }
-
-      .player {
-        padding: 18px;
-      }
-
-      .play-button {
-        min-height: 66px;
+        margin-bottom: 12px;
         font-size: 1.1em;
       }
 
-      .pause-button {
-        font-size: 0.9em;
+      .people {
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+
+      .person-button {
+        min-height: 72px;
+        padding: 8px 6px;
+        font-size: 0.95em;
+      }
+
+      .selected-person {
+        min-height: 145px;
+        gap: 18px;
+        margin-bottom: 14px;
+      }
+
+      #character {
+        width: 125px;
+        height: 125px;
+      }
+
+      .selected-info {
+        min-width: 145px;
+      }
+
+      #selected-name {
+        font-size: 1.35em;
+      }
+
+      .player {
+        padding: 16px 18px;
+      }
+
+      .play-button {
+        min-height: 58px;
+        font-size: 1.05em;
       }
     }
   </style>
@@ -300,10 +328,18 @@
 
     </div>
 
-    <p id="selected">だれのくくをききたい？</p>
+    <div class="selected-person">
 
-    <div class="character-area">
       <img id="character" src="" alt="">
+
+      <div class="selected-info">
+        <p id="selected-name">
+          <span class="english"></span>
+          <span class="japanese"></span>
+          <span class="dan"></span>
+        </p>
+      </div>
+
     </div>
 
     <div class="player">
@@ -331,8 +367,11 @@
   <script>
     function selectSong(person) {
       const song = document.getElementById('song');
-      const selected = document.getElementById('selected');
       const character = document.getElementById('character');
+
+      const english = document.querySelector('#selected-name .english');
+      const japanese = document.querySelector('#selected-name .japanese');
+      const dan = document.querySelector('#selected-name .dan');
 
       const buttons = document.querySelectorAll('.person-button');
 
@@ -343,7 +382,10 @@
       if (person === 'son') {
         song.src = '3-no-dan_son_normal_20260908.m4a';
         character.src = 'Son_2026-09-09 071711.png';
-        selected.textContent = 'Minato・みなとの三の段';
+
+        english.textContent = 'Minato';
+        japanese.textContent = 'みなと';
+        dan.textContent = '三の段';
 
         document.getElementById('son-button')
           .classList.add('selected');
@@ -352,7 +394,10 @@
       if (person === 'daughter') {
         song.src = '3-no-dan_daughter_normal_20260908.m4a';
         character.src = 'Daughter_2026-09-09 071935.png';
-        selected.textContent = 'Sumire・すみれの三の段';
+
+        english.textContent = 'Sumire';
+        japanese.textContent = 'すみれ';
+        dan.textContent = '三の段';
 
         document.getElementById('daughter-button')
           .classList.add('selected');
@@ -361,7 +406,10 @@
       if (person === 'pap') {
         song.src = '3-no-dan_pap_normal_20260908.m4a';
         character.src = 'Pap_2026-09-09 071953.png';
-        selected.textContent = 'Pap・ぱぱの三の段';
+
+        english.textContent = 'Pap';
+        japanese.textContent = 'ぱぱ';
+        dan.textContent = '三の段';
 
         document.getElementById('pap-button')
           .classList.add('selected');
